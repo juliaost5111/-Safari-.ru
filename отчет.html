@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+     <title>Салон красоты Safari</title>
+    <meta property="og:title" content="Салон красоты Safari" />
+    <meta property="og:description" content="Ваш оазис красоты и релаксации в стиле сафари. Профессиональные услуги и уникальная атмосфера." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/attached_assets/generated_images/luxury_safari_themed_beauty_salon_interior.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@replit" />
+    <meta name="twitter:title" content="Салон красоты Safari" />
+    <meta name="twitter:description" content="Ваш оазис красоты и релаксации в стиле сафари. Профессиональные услуги и уникальная атмосфера." />
+    <meta name="twitter:image" content="/attached_assets/generated_images/luxury_safari_themed_beauty_salon_interior.png" />
+    <link rel="icon" type="Косметология.png" href="косметология.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+      :root {
+        --background: #F8F7F4; 
+        --foreground: #0D261F; 
+        
+        --primary: #2E6B4F; 
+        --primary-foreground: #F5F3EB; 
+        
+        --secondary: #EBE1CE; 
+        --secondary-foreground: #1F3329; 
+        
+        --accent: #CCAC33; 
+        --accent-foreground: #0D261F;
+        
+        --muted: #E0EBE6; 
+        --muted-foreground: #476B5C; 
+        
+        --card: #FDFCFA; 
+        --border: #D6E0DB; 
+        
+        --font-sans: 'Montserrat', sans-serif;
+        --font-serif: 'Cormorant Garamond', serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--background);
+        color: var(--foreground);
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-serif);
+      }
+
+      .text-primary { color: var(--primary) !important; }
+      .bg-primary { background-color: var(--primary) !important; }
+      .text-primary-foreground { color: var(--primary-foreground) !important; }
+      
+      .text-accent { color: var(--accent) !important; }
+      .bg-accent { background-color: var(--accent) !important; }
+      
+      .bg-secondary { background-color: var(--secondary) !important; }
+      
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: white;
+        border-radius: 9999px;
+        padding: 0.5rem 1.5rem;
+      }
+      .btn-primary:hover {
+        background-color: #24543E;
+        border-color: #24543E;
+      }
+
+      .btn-accent {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        color: var(--foreground);
+        border-radius: 9999px;
+        padding: 1rem 2rem;
+        font-weight: 500;
+        transition: transform 0.3s;
+      }
+      .btn-accent:hover {
+        background-color: #B3962B;
+        border-color: #B3962B;
+        transform: scale(1.05);
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: rgba(248, 247, 244, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(214, 224, 219, 0.4);
+      }
+      .nav-link {
+        font-weight: 500;
+        color: rgba(13, 38, 31, 0.8);
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* Hero */
+      .hero-section {
+        position: relative;
+        height: 80vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0,0,0,0.4);
+        backdrop-filter: blur(2px);
+        z-index: -1;
+      }
+
+      /* Cards */
+      .service-card {
+        border: none;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+        border-radius: 0.5rem;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .service-img-wrapper {
+        height: 16rem;
+        overflow: hidden;
+        position: relative;
+      }
+      .service-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s;
+      }
+      .service-card:hover .service-img {
+        transform: scale(1.1);
+      }
+      .service-content {
+        position: relative;
+        z-index: 10;
+        margin-top: -2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        background-color: var(--card);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(214, 224, 219, 0.5);
+      }
+
+      /* Features */
+      .feature-card {
+        padding: 2rem;
+        border-radius: 1rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        transition: background-color 0.3s;
+      }
+      .feature-card:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      .feature-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 9999px;
+        background-color: rgba(204, 172, 51, 0.2);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem auto;
+        transition: transform 0.3s;
+      }
+      .feature-card:hover .feature-icon {
+        transform: scale(1.1);
+      }
+
+      /* Forms */
+      .form-control, .form-select {
+        background-color: var(--background);
+        border-color: var(--border);
+        padding: 0.75rem;
+      }
+      .form-control:focus, .form-select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.25rem rgba(46, 107, 79, 0.25);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+        opacity: 0;
+      }
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md fixed-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <span class="fs-2 fw-bold text-primary font-serif">SAFARI</span>
+          <span class="text-accent fs-6 ms-1 align-top fw-bold">BEAUTY</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-center gap-4">
+            <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+            <li class="nav-item"><a class="nav-link" href="#features">Преимущества</a></li>
+            <li class="nav-item"><a class="nav-link" href="#reviews">Отзывы</a></li>
+            <li class="nav-item"><a class="nav-link" href="#footer">Контакты</a></li>
+            <li class="nav-item">
+              <a href="#booking" class="btn btn-primary btn-sm">Записаться</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero-bg" style="background-image: url(загруженное\ \(3\).jpg);"></div>
+      <div class="hero-overlay"></div>
+      <div class="container position-relative z-2">
+        <span class="d-block text-accent text-uppercase letter-spacing-2 mb-3 animate-fade-in">Добро пожаловать в джунгли красоты</span>
+        <h1 class="display-1 fw-bold mb-4 animate-fade-in delay-100">SAFARI SALON</h1>
+        <p class="lead text-white-90 mx-auto mb-5 animate-fade-in delay-200" style="max-width: 700px;">
+          Уникальное пространство, где природная эстетика встречается с профессиональным уходом. Почувствуйте силу дикой природы.
+        </p>
+        <div class="animate-fade-in delay-300">
+          <a href="#booking" class="btn btn-accent">Записаться на прием</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-5 bg-background">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold text-primary mb-3">Наши Услуги</h2>
+          <div class="bg-accent mx-auto rounded-pill" style="height: 4px; width: 100px;"></div>
+          <p class="mt-4 text-muted mx-auto" style="max-width: 600px; color: var(--muted-foreground);">
+            Мы предлагаем полный спектр услуг для вашей красоты и здоровья, используя только натуральную косметику премиум-класса.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Service 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card h-100 bg-transparent">
+              <div class="service-img-wrapper">
+                <img src="Ногти.jpg" class="service-img" alt="Маникюр">
+                <div class="position-absolute w-100 h-100 top-0 start-0 bg-dark opacity-25"></div>
+              </div>
+              <div class="service-content text-center">
+                <h3 class="h5 fw-bold text-primary mb-2">Маникюр и Педикюр</h3>
+                <p class="small text-muted mb-3">Уход с использованием экологичных материалов.</p>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light">
+                  <span class="fw-bold text-primary fst-italic">от 1500 ₽</span>
+                  <a href="#" class="text-accent text-decoration-none small fw-bold">Подробнее &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card h-100 bg-transparent">
+              <div class="service-img-wrapper">
+                <img src="косметология.jpg" class="service-img" alt="Косметология">
+                <div class="position-absolute w-100 h-100 top-0 start-0 bg-dark opacity-25"></div>
+              </div>
+              <div class="service-content text-center">
+                <h3 class="h5 fw-bold text-primary mb-2">Косметология</h3>
+                <p class="small text-muted mb-3">Профессиональный уход за лицом, пилинги и массажи.</p>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light">
+                  <span class="fw-bold text-primary fst-italic">от 3000 ₽</span>
+                  <a href="#" class="text-accent text-decoration-none small fw-bold">Подробнее &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card h-100 bg-transparent">
+              <div class="service-img-wrapper">
+                <img src="Визуал для стилиста по волосам _ контент сьемка.jpg" class="service-img" alt="Стилистика">
+                <div class="position-absolute w-100 h-100 top-0 start-0 bg-dark opacity-25"></div>
+              </div>
+              <div class="service-content text-center">
+                <h3 class="h5 fw-bold text-primary mb-2">Стилистика Волос</h3>
+                <p class="small text-muted mb-3">Стрижки, окрашивание и уход за волосами любой сложности.</p>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light">
+                  <span class="fw-bold text-primary fst-italic">от 2500 ₽</span>
+                  <a href="#" class="text-accent text-decoration-none small fw-bold">Подробнее &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card h-100 bg-transparent">
+              <div class="service-img-wrapper">
+                <img src="Фото массаж Гуаши спины.jpg" class="service-img" alt="SPA">
+                <div class="position-absolute w-100 h-100 top-0 start-0 bg-dark opacity-25"></div>
+              </div>
+              <div class="service-content text-center">
+                <h3 class="h5 fw-bold text-primary mb-2">SPA & Массаж</h3>
+                <p class="small text-muted mb-3">Расслабляющие процедуры для тела в атмосфере тропиков.</p>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light">
+                  <span class="fw-bold text-primary fst-italic">от 4000 ₽</span>
+                  <a href="#" class="text-accent text-decoration-none small fw-bold">Подробнее &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="py-5 bg-primary text-white position-relative">
+      <div class="container py-5 position-relative z-2">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold mb-3">Почему выбирают нас</h2>
+          <div class="bg-accent mx-auto rounded-pill" style="height: 4px; width: 100px;"></div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-card h-100 text-center">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <h3 class="h5 fw-bold mb-3 font-serif">Эко-материалы</h3>
+              <p class="opacity-75 small">Используем только натуральную и безопасную косметику премиум класса.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-card h-100 text-center">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <h3 class="h5 fw-bold mb-3 font-serif">Профессионалы</h3>
+              <p class="opacity-75 small">Мастера с опытом более 5 лет и постоянным повышением квалификации.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-card h-100 text-center">
+              <div class="feature-icon">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M9 3v4"/><path d="M3 5h4"/><path d="M3 9h4"/></svg>
+              </div>
+              <h3 class="h5 fw-bold mb-3 font-serif">Атмосфера</h3>
+              <p class="opacity-75 small">Уникальный интерьер в стиле сафари для вашего полного расслабления.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-card h-100 text-center">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
+              <h3 class="h5 fw-bold mb-3 font-serif">Забота</h3>
+              <p class="opacity-75 small">Индивидуальный подход к каждому клиенту и внимание к деталям.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="py-5" style="background-color: rgba(235, 225, 206, 0.3);">
+      <div class="container py-5">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="display-5 fw-bold text-primary mb-3">Запишитесь на визит</h2>
+            <p class="lead text-muted mb-4">Оставьте заявку, и наш администратор свяжется с вами для уточнения деталей и выбора удобного времени.</p>
+            
+            <div class="card border-0 shadow-sm p-4">
+              <h4 class="h5 fw-bold text-primary mb-3 font-serif">Часы работы</h4>
+              <ul class="list-unstyled text-muted mb-0">
+                <li class="d-flex justify-content-between border-bottom pb-2 mb-2">
+                  <span>Пн - Пт</span>
+                  <span>10:00 - 22:00</span>
+                </li>
+                <li class="d-flex justify-content-between pb-2">
+                  <span>Сб - Вс</span>
+                  <span>10:00 - 20:00</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-lg p-4 p-md-5">
+              <form>
+                <div class="mb-4">
+                  <label for="name" class="form-label">Ваше имя</label>
+                  <input type="text" class="form-control" id="name" placeholder="Анна">
+                </div>
+                <div class="mb-4">
+                  <label for="phone" class="form-label">Телефон</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="+7 (999) 000-00-00">
+                </div>
+                <div class="mb-4">
+                  <label for="service" class="form-label">Услуга</label>
+                  <select class="form-select" id="service">
+                    <option selected>Выберите услугу</option>
+                    <option value="1">Маникюр</option>
+                    <option value="2">Педикюр</option>
+                    <option value="3">Стрижка / Окрашивание</option>
+                    <option value="4">Уход за лицом</option>
+                    <option value="5">Массаж</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3 fs-5">Отправить заявку</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="py-5 bg-background">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold text-primary mb-3">Отзывы Клиентов</h2>
+          <div class="bg-accent mx-auto rounded-pill" style="height: 4px; width: 100px;"></div>
+        </div>
+
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row justify-content-center">
+                <div class="col-md-8">
+                  <div class="card border-0 shadow-sm p-4 text-center bg-transparent">
+                    <div class="mb-3 text-accent">★★★★★</div>
+                    <p class="fst-italic text-muted mb-4 lead">"Потрясающая атмосфера! Будто побывала в отпуске. Мастера настоящие профессионалы, маникюр держится идеально."</p>
+                    <h5 class="fw-bold text-primary font-serif">Елена Смирнова</h5>
+                    <span class="small text-muted">Постоянный клиент</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                <div class="col-md-8">
+                  <div class="card border-0 shadow-sm p-4 text-center bg-transparent">
+                    <div class="mb-3 text-accent">★★★★★</div>
+                    <p class="fst-italic text-muted mb-4 lead">"Очень понравился массаж. Интерьер просто вау, столько зелени! Обязательно приду еще на уход за лицом."</p>
+                    <h5 class="fw-bold text-primary font-serif">Ольга Петрова</h5>
+                    <span class="small text-muted">Гость</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="bg-primary text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row g-4 mb-5">
+          <div class="col-md-4">
+            <h3 class="font-serif fw-bold mb-3">SAFARI</h3>
+            <p class="opacity-75 small mb-4">
+              Ваш персональный оазис красоты и спокойствия. Погрузитесь в атмосферу дикой природы и роскошного ухода.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="https://apps.microsoft.com/detail/9nblggh5l9xt?hl=ru-ru&gl=RU" class="text-white hover-accent"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              <a href="https://soc-faq.ru/facebook/entrance-fb/vhod-na-moyu-stranitsu.html" class="text-white hover-accent"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <h4 class="h5 fw-bold text-accent mb-3 font-serif">Контакты</h4>
+            <ul class="list-unstyled opacity-90">
+              <li class="mb-3 d-flex gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>г. Омск, ул. 70 лет октября, д. 18,<br>11 микрорайон</span>
+              </li>
+              <li class="mb-3 d-flex gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+7 (999) 123-72-48</span>
+              </li>
+              <li class="d-flex gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>info@safari-beauty.ru</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <div class="rounded overflow-hidden border border-white-10" style="height: 200px; position: relative; background: rgba(255,255,255,0.1);">
+               <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/safari/244063457955/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Сафари</a><a href="https://yandex.ru/maps/66/omsk/category/beauty_salon/184105814/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Салон красоты в Омске</a><a href="https://yandex.ru/maps/66/omsk/category/nail_salon/20476284572/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Ногтевая студия в Омске</a><iframe src="https://yandex.ru/map-widget/v1/?ll=73.320178%2C54.983036&mode=poi&poi%5Bpoint%5D=73.319720%2C54.982941&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D244063457955&z=19" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-top border-secondary pt-4 text-center opacity-50 small">
+          &copy; <script>document.write(new Date().getFullYear())</script> Safari Beauty Salon. Все права защищены.
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
